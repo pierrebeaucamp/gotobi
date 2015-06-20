@@ -1,23 +1,23 @@
 {{define "body"}}
 {{template "header"}}
-
 <h3>Profile</h3>
 
-<form>
+<form action="/submit/" method="POST" enctype="multipart/form-data">
     <div>
         <label for="title">Name:</label><br>
-        <input type="text" id="title" name="title" required>
+        <input type="text" id="title" name="title" placeholder="{{.name}}" required>
     </div>
     <div>
         <label for="bio">Bio:</label><br>
-        <textarea rows="4" cols="50" id="bio" name="bio"></textarea>
+        <textarea rows="4" cols="50" id="bio" name="bio">{{.bio}}</textarea>
     </div>
     <div>
-        <label for="mail">Email</label><br>
-        <input type="text" id="mail" name="mail" required>
+        <label for="email">Email</label><br>
+        <input type="text" id="email" name="email" placeholder="{{.email}}" required>
         @gotobi.bymail.in
     </div>
-
+    
+    <input type="hidden" name="filled" value="{{.filled}}">
     <button type="submit" name="submit">Save</button>
 </form>
 

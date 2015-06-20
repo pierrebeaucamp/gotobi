@@ -33,7 +33,6 @@ func init() {
 		fmt.Printf("Error: %v \n", err)
 		os.Exit(1)
 	}
-
 }
 
 func main() {
