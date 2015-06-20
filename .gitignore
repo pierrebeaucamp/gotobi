@@ -29,3 +29,6 @@ gotobi
 *~
 *.swp
 *.swo
+
+# Submodule
+src/github.com/lib/
