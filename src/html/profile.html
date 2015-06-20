@@ -3,5 +3,23 @@
 
 <h3>Profile</h3>
 
+<form>
+    <div>
+        <label for="title">Name:</label><br>
+        <input type="text" id="title" name="title" required>
+    </div>
+    <div>
+        <label for="bio">Bio:</label><br>
+        <textarea rows="4" cols="50" id="bio" name="bio"></textarea>
+    </div>
+    <div>
+        <label for="mail">Email</label><br>
+        <input type="text" id="mail" name="mail" required>
+        @gotobi.bymail.in
+    </div>
+
+    <button type="submit" name="submit">Save</button>
+</form>
+
 {{template "footer"}}
 {{end}}
