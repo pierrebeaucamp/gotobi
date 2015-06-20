@@ -1,1 +1,1 @@
-web: ./gotobi -port $PORT
+web: gotobi -port $PORT
