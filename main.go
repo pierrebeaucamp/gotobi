@@ -25,9 +25,9 @@ func init() {
 	}
 
 	_, err = controllers.DB.Exec(`CREATE TABLE IF NOT EXISTS projects (
-		id VARCHAR(100) PRIMARY KEY,
+		id VARCHAR(100) UNIQUE PRIMARY KEY,
 		name VARCHAR(50) NOT NULL,
-		email VARCHAR(50) NOT NULL,
+		email VARCHAR(50) UNIQUE NOT NULL,
     	bio TEXT);`)
 	if err != nil {
 		fmt.Printf("Error: %v \n", err)
