@@ -1,4 +1,4 @@
-package gotobi
+package main
 
 import (
 	"net/http"
