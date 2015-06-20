@@ -1,6 +1,7 @@
 package main
 
 import (
+	"controllers"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -11,7 +12,7 @@ func TestIndex(t *testing.T) {
 	req, _ := http.NewRequest("GET", "/", nil)
 	res := httptest.NewRecorder()
 
-	index(res, req)
+	controllers.Index(res, req)
 
 	// Test if we get 200
 	if res.Code != http.StatusOK {
