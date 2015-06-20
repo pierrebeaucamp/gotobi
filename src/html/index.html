@@ -3,5 +3,20 @@
 
 <h3>Hello World</h3>
 
+<span id="login"></span>
+<script src="https://www.paypalobjects.com/js/external/api.js"></script>
+<script>
+    paypal.use( ["login"], function(login) {
+        login.render ({
+            "appid": "{{.clientID}}",
+            "authend": "sandbox",
+            "scopes": "openid",
+            "containerid": "login",
+            "locale": "en-us",
+            "returnurl": "{{.returnURI}}"
+        });
+    });
+</script>
+
 {{template "footer"}}
 {{end}}

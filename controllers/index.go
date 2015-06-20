@@ -13,7 +13,13 @@ func getTemplate(name string) *template.Template {
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	t := getTemplate("index")
-	render(t, w, nil)
+
+	varmap := map[string]interface{}{
+		"clientID":  ClientID,
+		"returnURI": ReturnURI,
+	}
+
+	render(t, w, varmap)
 }
 
 func render(t *template.Template, w http.ResponseWriter,

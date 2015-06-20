@@ -18,6 +18,8 @@ func main() {
 	endpoint := fmt.Sprintf("%v:%v", *Address, *Port)
 
 	http.HandleFunc("/", controllers.Index)
+	http.HandleFunc("/login/", controllers.PaypalLogin)
+	http.HandleFunc("/profile/", controllers.Profile)
 	http.Handle("/assets/", http.StripPrefix("/assets",
 		http.FileServer(http.Dir("assets"))))
 
