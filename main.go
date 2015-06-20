@@ -19,7 +19,7 @@ func main() {
 
 	http.HandleFunc("/", controllers.Index)
 	http.HandleFunc("/login/", controllers.PaypalLogin)
-	http.HandleFunc("/profile/", controllers.Profile)
+	http.HandleFunc("/mail/", controllers.InboundMail)
 	http.Handle("/assets/", http.StripPrefix("/assets",
 		http.FileServer(http.Dir("assets"))))
 

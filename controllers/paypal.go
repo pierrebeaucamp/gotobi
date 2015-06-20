@@ -2,9 +2,10 @@ package controllers
 
 import (
 	"bytes"
-	"fmt"
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 var (
@@ -21,8 +22,10 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 	req, err := http.NewRequest("POST",
 		"https://api.sandbox.paypal.com/v1/identity/openidconnect/tokenservice",
 		data)
+
 	if err != nil {
 		//TODO
+		return
 	}
 
 	client := &http.Client{}
@@ -30,6 +33,7 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		//TODO
+		return
 	}
 
 	body, err := ioutil.ReadAll(res.Body)
@@ -37,7 +41,30 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		//TODO
+		return
 	}
 
-	fmt.Fprint(w, string(body))
+	var info map[string]interface{}
+	err = json.Unmarshal(body, &info)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	d, err := time.ParseDuration(info["expires_in"].(string) + "s")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	cookie := http.Cookie{
+		Name:    "GoTobiAuthToken",
+		Value:   info["access_token"].(string),
+		Path:    "/",
+		Expires: time.Now().Add(d),
+	}
+	http.SetCookie(w, &cookie)
+
+	t := getTemplate("close")
+	render(t, w, nil)
 }

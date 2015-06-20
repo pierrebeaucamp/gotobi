@@ -12,6 +12,12 @@ func getTemplate(name string) *template.Template {
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
+	_, err := r.Cookie("GoTobiAuthToken")
+	if err == nil {
+		profile(w, r)
+		return
+	}
+
 	t := getTemplate("index")
 
 	varmap := map[string]interface{}{
@@ -20,6 +26,11 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	}
 
 	render(t, w, varmap)
+}
+
+func profile(w http.ResponseWriter, r *http.Request) {
+	t := getTemplate("profile")
+	render(t, w, nil)
 }
 
 func render(t *template.Template, w http.ResponseWriter,
