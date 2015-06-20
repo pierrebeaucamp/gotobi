@@ -1,11 +1,12 @@
 package main
 
 import (
-	"controllers"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
+
+	"github.com/pierrebeaucamp/gotobi/controllers"
 )
 
 func TestIndex(t *testing.T) {

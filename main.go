@@ -1,10 +1,11 @@
 package main
 
 import (
-	"controllers"
 	"flag"
 	"fmt"
 	"net/http"
+
+	"github.com/pierrebeaucamp/gotobi/controllers"
 )
 
 var (
