@@ -3,7 +3,6 @@ package controllers
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -110,7 +109,7 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 func invoice(amount string, currency string, account string,
 	email string) error {
 
-	json := []byte(`{
+	invoice := []byte(`{
 		"merchant_info": {
 			"email": "pierrebeaucamp-facilitator@web.de"
 		},
@@ -126,7 +125,7 @@ func invoice(amount string, currency string, account string,
 			}
 		}]
 	}`)
-	data := bytes.NewReader(json)
+	data := bytes.NewReader(invoice)
 
 	req, err := http.NewRequest("POST",
 		"https://api.sandbox.paypal.com/v1/invoicing/invoices", data)
