@@ -3,6 +3,7 @@ package controllers
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -176,6 +177,8 @@ func sendInvoice(id string) error {
 		return err
 	}
 
+	fmt.Println("Invoice ID: " + id)
+
 	auth, err := getAuthToken()
 	if err != nil {
 		return err
@@ -185,10 +188,18 @@ func sendInvoice(id string) error {
 	req.Header.Add("Content-Type", "application/json")
 
 	client := &http.Client{}
-	_, err = client.Do(req)
+	res, err = client.Do(req)
 	if err != nil {
 		return err
 	}
+
+	body, err := ioutil.ReadAll(res.Body)
+	defer res.Body.Close()
+	if err != nil {
+		return err
+	}
+
+	fmt.Println(string(body))
 
 	return nil
 }
