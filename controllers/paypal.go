@@ -85,6 +85,8 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Println(string(body))
+
 	var info map[string]interface{}
 	err = json.Unmarshal(body, &info)
 	if err != nil {
