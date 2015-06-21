@@ -110,11 +110,11 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 func invoice(amount string, currency string, account string,
 	email string) error {
 
-	email = "pierrebeaucamp-buyer@web.de"
+	email = "mail@pierrebeaucamp.com"
 
 	invoice := []byte(`{
 		"merchant_info": {
-			"email": "pierrebeaucamp-facilitator@web.de"
+			"email": "smart@deli.rocks"
 		},
 		"billing_info": [{
 			"email": "` + email + `"
