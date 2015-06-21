@@ -127,7 +127,7 @@ func invoice(amount string, currency string, account string,
 			}
 		}]
 	}`
-	fmt.Println(values)
+
 	data := bytes.NewReader([]byte(values))
 	req, err := http.NewRequest("POST",
 		"https://api.sandbox.paypal.com/v1/invoicing/invoices", data)
@@ -139,6 +139,8 @@ func invoice(amount string, currency string, account string,
 	if err != nil {
 		return err
 	}
+
+	fmt.Println(auth)
 
 	req.Header.Add("Authorization", "Bearer "+auth)
 	req.Header.Add("Content-Type", "application/json")
