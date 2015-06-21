@@ -57,7 +57,9 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Println(r.PostFormValue("to"))
 	account := getAccount(r.PostFormValue("to"))
+	fmt.Println(account)
 	if account == "" {
 		fmt.Fprint(w, "200")
 		return
