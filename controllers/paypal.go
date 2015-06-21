@@ -114,7 +114,7 @@ func invoice(amount string, currency string, account string,
 
 	invoice := []byte(`{
 		"merchant_info": {
-			"email": "smart@deli.rocks"
+			"email": "admin@gotobi.de"
 		},
 		"billing_info": [{
 			"email": "` + email + `"
