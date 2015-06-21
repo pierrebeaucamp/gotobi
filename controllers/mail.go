@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -41,11 +40,7 @@ func getAmount(in string) (string, string) {
 		return "0", currency
 	}
 
-	// normalize
-	a, _ := strconv.Atoi(amount)
-	amount = strconv.Itoa(a)
-
-	return amount, currency
+	return strings.TrimSpace(amount), currency
 }
 
 func getEmail(in string) string {
