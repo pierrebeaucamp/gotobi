@@ -60,6 +60,8 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Println("Got amount: " + amount + " and currency: " + currency)
+
 	err := invoice(amount, currency, account, r.FormValue("From"))
 	if err != nil {
 		fmt.Println("Error: " + err.Error())

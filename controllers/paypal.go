@@ -3,6 +3,7 @@ package controllers
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -148,10 +149,11 @@ func invoice(amount string, currency string, account string,
 
 	body, err := ioutil.ReadAll(res.Body)
 	defer res.Body.Close()
-
 	if err != nil {
 		return err
 	}
+
+	fmt.Println(string(body))
 
 	var info map[string]interface{}
 	err = json.Unmarshal(body, &info)
@@ -189,5 +191,6 @@ func sendInvoice(id string) error {
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
