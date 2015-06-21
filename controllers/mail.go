@@ -15,8 +15,6 @@ func getAmount(in string) (string, string) {
 	regCur := regexp.MustCompile(`\p{Sc}|AUD|BRL|CAD|CZK|DKK|EUR|HKD|HUF|ILS|JPY|MYR|MXN|TWD|NZD|NOK|PHP|PLN|GBP|SGD|SEK|CHF|THB|TRY|USD`)
 	regAm := regexp.MustCompile(`[0-9]*$`)
 
-	fmt.Println(in)
-
 	currency := regCur.FindStringSubmatch(in)[0]
 	if currency == "" {
 		// Default
@@ -37,10 +35,7 @@ func getAmount(in string) (string, string) {
 		amount = regCur.Split(in, -1)[1]
 	}
 
-	fmt.Println(amount)
 	amount = regAm.FindStringSubmatch(amount)[0]
-	fmt.Println(amount)
-
 	if amount == "" {
 		return "0", currency
 	}
