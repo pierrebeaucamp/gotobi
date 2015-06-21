@@ -10,7 +10,7 @@ import (
 
 func getUserID(auth string) (string, error) {
 	req, err := http.NewRequest("POST",
-		"https://api.sandbox.paypal.com/v1/identity/openidconnect/userinfo?schema=openid",
+		"https://api.paypal.com/v1/identity/openidconnect/userinfo?schema=openid",
 		nil)
 	if err != nil {
 		return "", err

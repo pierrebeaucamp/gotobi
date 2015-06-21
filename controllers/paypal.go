@@ -20,7 +20,7 @@ func getAuthToken() (string, error) {
 	data := bytes.NewReader([]byte(values))
 
 	req, err := http.NewRequest("POST",
-		"https://api.sandbox.paypal.com/v1/oauth2/token", data)
+		"https://api.paypal.com/v1/oauth2/token", data)
 	if err != nil {
 		return "", err
 	}
@@ -58,7 +58,7 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 	data := bytes.NewReader([]byte(values))
 
 	req, err := http.NewRequest("POST",
-		"https://api.sandbox.paypal.com/v1/identity/openidconnect/tokenservice",
+		"https://api.paypal.com/v1/identity/openidconnect/tokenservice",
 		data)
 
 	if err != nil {
@@ -129,7 +129,7 @@ func invoice(amount string, currency string, account string,
 	data := bytes.NewReader(invoice)
 
 	req, err := http.NewRequest("POST",
-		"https://api.sandbox.paypal.com/v1/invoicing/invoices", data)
+		"https://api.paypal.com/v1/invoicing/invoices", data)
 	if err != nil {
 		return err
 	}
@@ -176,7 +176,7 @@ func invoice(amount string, currency string, account string,
 
 func sendInvoice(id string) error {
 	req, err := http.NewRequest("POST",
-		"https://api.sandbox.paypal.com/v1/invoicing/invoices/"+
+		"https://api.paypal.com/v1/invoicing/invoices/"+
 			id+"/send",
 		nil)
 	if err != nil {
