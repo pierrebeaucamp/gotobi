@@ -13,7 +13,7 @@ func getAccount(in string) string {
 
 func getAmount(in string) (string, string) {
 	regCur := regexp.MustCompile(`\p{Sc}|AUD|BRL|CAD|CZK|DKK|EUR|HKD|HUF|ILS|JPY|MYR|MXN|TWD|NZD|NOK|PHP|PLN|GBP|SGD|SEK|CHF|THB|TRY|USD`)
-	regAm := regexp.MustCompile(`[0-9]*$`)
+	regAm := regexp.MustCompile(`(\d+)\s`)
 
 	currency := regCur.FindStringSubmatch(in)[0]
 	if currency == "" {
