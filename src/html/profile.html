@@ -1,25 +1,80 @@
 {{define "body"}}
 {{template "header"}}
-<h3>Profile</h3>
 
-<form action="/submit" method="POST" enctype="multipart/form-data">
-    <div>
-        <label for="title">Name:</label><br>
-        <input type="text" id="title" name="title" placeholder="{{.name}}" required>
+<div class="contain-to-grid">   
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <a href="/">
+              <img src="/assets/images/logo.svg" alt="Gotobi" class="logoimg">
+            </a>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="active"><a href="#">Create new project</a></li>
+          </ul>
+        </section>
+      </nav>
     </div>
-    <div>
-        <label for="bio">Bio:</label><br>
-        <textarea rows="4" cols="50" id="bio" name="bio">{{.bio}}</textarea>
-    </div>
-    <div>
-        <label for="email">Email</label><br>
-        <input type="text" id="email" name="email" placeholder="{{.email}}" required>
-        @gotobi.bymail.in
-    </div>
-    
-    <input type="hidden" name="filled" value="{{.filled}}">
-    <button type="submit" name="submit">Save</button>
-</form>
+
+    <section class="down-1">    
+      <div class="row">
+        <div class="small-12 large-8 columns">  
+          <h3>Create a new project</h3>
+          
+          <form action="/submit" method="POST" enctype="multipart/form-data" class="down-1">
+            <div class="row">
+              <div class="small-12 columns">
+                <label for="title">Your name
+                  <input type="text" id="title" placeholder="{{.name}}" name="title" required>
+                </label>
+
+                <label for="bio">Describe your project
+                  <textarea name="bio" id="bio" cols="50" rows="4">{{.bio}}</textarea>
+                </label>
+
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-12 columns">
+                Set an email address to receive donations at
+              </div>
+              <div class="small-5 columns">
+                <input type="text" id="email" name="email" class="largetext" placeholder="{{.email}}" required>
+              </div>
+              <div class="small-7 columns">
+                <span class="emailhook">@gotobi.bymail.in</span>
+              </div>
+            </div>
+
+            <input type="hidden" name="filled" value="{{.filled}}">
+            <input type="submit" class="button" name="Submit">
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="down-7">
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="center">
+            <p class="footertext">
+              A <a href="https://2015.battlehack.org">#BattleHack</a> project by <a href="https://twitter.com/pierrebeauchamp">@pierrebeauchamp</a> and <a href="https://twitter.com/jdker">@jdker</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>        
+    <script src="js/foundation.min.js"></script>    
+    <script src="js/app.js"></script>
 
 {{template "footer"}}
 {{end}}
