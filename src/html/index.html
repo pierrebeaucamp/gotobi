@@ -1,22 +1,92 @@
 {{define "body"}}
 {{template "header"}}
 
-<h3>Hello World</h3>
+<div class="contain-to-grid">   
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <a href="/">
+              <img src="/assets/images/logo.svg" alt="Gotobi" class="logoimg">
+            </a>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+        </ul>
 
-<span id="login"></span>
-<script src="https://www.paypalobjects.com/js/external/api.js"></script>
-<script>
-    paypal.use( ["login"], function(login) {
-        login.render ({
-            "appid": "{{.clientID}}",
-            "authend": "sandbox",
-            "scopes": "openid",
-            "containerid": "login",
-            "locale": "en-us",
-            "returnurl": "{{.returnURI}}"
-        });
-    });
-</script>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="active"><a href="#">Create new project</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+
+    <section id="maincontent">
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="shadow">
+            <h2>Instant mobile kindness</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="secondary">
+      <div class="row">
+        <div class="small-12 columns">
+          <p class="bigger center">With Gotobi, anyone can create a funding project for a good cause.
+          <br>  
+          <span class="bold">Get started now</span></p>
+          <p class="center">
+            <!-- Login with PayPal -->
+            <span id="login"></span>
+            <script src="https://www.paypalobjects.com/js/external/api.js"></script>
+            <script>
+                paypal.use( ["login"], function(login) {
+                    login.render ({
+                        "appid": "{{.clientID}}",
+                        "authend": "sandbox",
+                        "scopes": "openid",
+                        "containerid": "login",
+                        "locale": "en-us",
+                        "returnurl": "{{.returnURI}}"
+                    });
+                });
+            </script>
+            <!-- end Login with PayPal -->
+
+        </div>
+      </div>
+    </section>
+
+    <section id="tertiary" class="bordertop">
+      <div class="row">
+        <div class="small-10 columns small-offset-1">
+          <h3 class="center">How it works</h3>  
+            <p class="bigger">1 - Sign up for an account</p>
+            <p class="bigger">2 - Create a new project</p>
+            <p class="bigger">3 - You can now receive donations via email!</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="center">
+            <p class="footertext">
+              A <a href="https://2015.battlehack.org">#BattleHack</a> project by <a href="https://twitter.com/pierrebeauchamp">@pierrebeauchamp</a> and <a href="https://twitter.com/jdker">@jdker</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
 
 {{template "footer"}}
 {{end}}
