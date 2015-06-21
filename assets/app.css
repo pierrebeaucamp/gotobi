@@ -7932,12 +7932,16 @@ nav.top-bar {
   padding: 0 0.9375rem;
 }
 
+ul.no-padding {
+  padding: 0 0;
+}
+
 .down-1 {
   margin-top: 1.2rem;
 }
 
-.down-7 {
-  margin-top: 8.4rem;
+.down-4 {
+  margin-top: 4.8rem;
 }
 
 img.logoimg {
@@ -7963,7 +7967,7 @@ img.logoimg {
 }
 
 section#maincontent {
-  background: url(images/backgroundmin.jpg) no-repeat 0 50%;
+  background: url(../assets/images/backgroundmin.jpg) no-repeat 0 50%;
   background-size: cover;
   padding: 5% 0;
   text-align: center;
