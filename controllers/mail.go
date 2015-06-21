@@ -40,7 +40,7 @@ func getAmount(in string) (string, string) {
 		return "0", currency
 	}
 
-	return amount, currency
+	return strings.TrimSpace(amount), currency
 }
 
 func getEmail(in string) string {
