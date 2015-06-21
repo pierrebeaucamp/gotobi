@@ -48,6 +48,8 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 	}
 
 	amount, currency := getAmount(r.FormValue("subject"))
+	fmt.Println("Got amount: " + amount + " and currency: " + currency)
+
 	if amount == "0" {
 		// Respond 200 so sendgrid doesn't try over and over again
 		fmt.Fprintf(w, "200")
@@ -59,8 +61,6 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "200")
 		return
 	}
-
-	fmt.Println("Got amount: " + amount + " and currency: " + currency)
 
 	err := invoice(amount, currency, account, r.FormValue("From"))
 	if err != nil {
