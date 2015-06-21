@@ -111,26 +111,27 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 
 func invoice(amount string, currency string, account string,
 	email string) error {
-	/*	values := `{
-			"merchant_info": {
-				"email": "pierrebeaucamp-buyer@web.de"
-			},
-			"billing_info": [{
-				"email": "` + email + `"
-			}],
-			"items": [{
-				"name": "Donation",
-				"quantity": 1,
-				"unit_price": {
-					"currency": "` + currency + `",
-					"value": ` + amount + `
-				}
-			}]
-		}`
 
-		data := bytes.NewReader([]byte(values)) */
+	json := []byte(`{
+		"merchant_info": {
+			"email": "pierrebeaucamp-buyer@web.de"
+		},
+		"billing_info": [{
+			"email": "` + email + `"
+		}],
+		"items": [{
+			"name": "Donation",
+			"quantity": 1,
+			"unit_price": {
+				"currency": "` + currency + `",
+				"value": "` + amount + `"
+			}
+		}]
+	}`)
+	data := bytes.NewReader(json)
+
 	req, err := http.NewRequest("POST",
-		"https://api.sandbox.paypal.com/v1/invoicing/invoices", nil)
+		"https://api.sandbox.paypal.com/v1/invoicing/invoices", data)
 	if err != nil {
 		return err
 	}
