@@ -57,15 +57,13 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println(r.FormValue("to"))
 	account := getAccount(r.FormValue("to"))
-	fmt.Println(account)
 	if account == "" {
 		fmt.Fprint(w, "200")
 		return
 	}
 
-	err := invoice(amount, currency, account, r.FormValue("From"))
+	err := invoice(amount, currency, account, r.FormValue("from"))
 	if err != nil {
 		fmt.Println("Error: " + err.Error())
 	}

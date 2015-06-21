@@ -111,7 +111,7 @@ func invoice(amount string, currency string, account string,
 	email string) error {
 	values := `{
 		"merchant_info": {
-			"email": "dennis@sample.com"
+			"email": "pierrebeaucamp-buyer@web.de"
 		},
 		"billing_info": [{
 			"email": "` + email + `"
