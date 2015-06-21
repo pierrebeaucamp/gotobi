@@ -10,5 +10,6 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "This is not an Email")
 	}
 
-	fmt.Fprint(w, r.FormValue("from")+"\n\n"+r.FormValue("subject"))
+	fmt.Println(r.FormValue("from"))
+	fmt.Println(r.FormValue("subject"))
 }
