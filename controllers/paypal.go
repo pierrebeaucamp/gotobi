@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	ClientID  = "ASTQe8TCWn2Ulfw4nEmOwCWBOJ5efoRdr6ajtVZYwJGdGcDpfOEG509CwKkRlAV5R-MxtpWhcV2X5GpZ"
-	Secret    = "EAS3qVHJG9MBg0Lme_QeTX_-ex7e2CpqE2pKLhGISHkid1eAXjgY1RdBL2Y_0WY-GQOV3Dj-LKRNnG1p"
-	ReturnURI = "http://localhost:8000/login/"
+	ClientID  = "AVBDPKsF3WnT0zOc8YmbyXQqytcD2aitacih9QEdihWLRrQktS6WGopeoEyVy3lQnAngKytIKNtFAziU"
+	Secret    = "EGNx-Gk8ShePM1dmZqescKj8Jmpo8DZspBXCG5fHdRwLa0JRQ7yLkF1WpIfm6rneBwkCEDPQSAy9Y4uB"
+	ReturnURI = "https://aqueous-temple-3620.herokuapp.com/login"
 )
 
 func getAuthToken() (string, error) {
@@ -109,6 +109,8 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 
 func invoice(amount string, currency string, account string,
 	email string) error {
+
+	email = "pierrebeaucamp-buyer@web.de"
 
 	invoice := []byte(`{
 		"merchant_info": {

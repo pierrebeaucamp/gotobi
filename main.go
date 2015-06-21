@@ -40,7 +40,7 @@ func main() {
 	endpoint := fmt.Sprintf("%v:%v", *Address, *Port)
 
 	http.HandleFunc("/", controllers.Index)
-	http.HandleFunc("/login/", controllers.PaypalLogin)
+	http.HandleFunc("/login", controllers.PaypalLogin)
 	http.HandleFunc("/mail", controllers.InboundMail)
 	http.HandleFunc("/submit", controllers.Submit)
 	http.Handle("/assets/", http.StripPrefix("/assets",
