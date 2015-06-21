@@ -7963,7 +7963,7 @@ img.logoimg {
 }
 
 section#maincontent {
-  background: url(../images/backgroundmin.jpg) no-repeat 0 50%;
+  background: url(images/backgroundmin.jpg) no-repeat 0 50%;
   background-size: cover;
   padding: 5% 0;
   text-align: center;
