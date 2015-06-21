@@ -140,10 +140,8 @@ func invoice(amount string, currency string, account string,
 		return err
 	}
 
-	fmt.Println(auth)
-
-	req.Header.Add("Authorization", "Bearer "+auth)
 	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Authorization", "Bearer "+auth)
 
 	client := &http.Client{}
 	res, err := client.Do(req)
