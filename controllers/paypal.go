@@ -114,7 +114,7 @@ func invoice(amount string, currency string, account string,
 
 	json := []byte(`{
 		"merchant_info": {
-			"email": "pierrebeaucamp-buyer@web.de"
+			"email": "pierrebeaucamp-facilitator@web.de"
 		},
 		"billing_info": [{
 			"email": "` + email + `"
@@ -141,8 +141,8 @@ func invoice(amount string, currency string, account string,
 		return err
 	}
 
-	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", "Bearer "+auth)
+	req.Header.Add("Content-Type", "application/json")
 
 	client := &http.Client{}
 	res, err := client.Do(req)
