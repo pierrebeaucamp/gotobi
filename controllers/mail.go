@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -39,6 +40,10 @@ func getAmount(in string) (string, string) {
 	if amount == "" {
 		return "0", currency
 	}
+
+	// normalize
+	a, _ := strconv.Atoi(amount)
+	amount = string(a)
 
 	return amount, currency
 }
