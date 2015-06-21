@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	ClientID  = "AVBDPKsF3WnT0zOc8YmbyXQqytcD2aitacih9QEdihWLRrQktS6WGopeoEyVy3lQnAngKytIKNtFAziU"
-	Secret    = "EGNx-Gk8ShePM1dmZqescKj8Jmpo8DZspBXCG5fHdRwLa0JRQ7yLkF1WpIfm6rneBwkCEDPQSAy9Y4uB"
-	ReturnURI = "https://aqueous-temple-3620.herokuapp.com/login"
+	ClientID  = "AXCB7ynE5biGyr9EqzBGs3k4rKgm4XSUyetQTttPLVZj22W_yY7pfqeZl51pDNejY5d9TKtweGrD_cBV"
+	Secret    = "EKap6plZ6thi5zltlRVZu4VrLUKwD22RrA0_vqSoJVy_j7Mfifs9j11xYXky2v6T8PupRIyRdxrjuAIa"
+	ReturnURI = "https://gotobi.herokuapp.com/login"
 )
 
 func getAuthToken() (string, error) {
@@ -109,8 +109,6 @@ func PaypalLogin(w http.ResponseWriter, r *http.Request) {
 
 func invoice(amount string, currency string, account string,
 	email string) error {
-
-	email = "mail@pierrebeaucamp.com"
 
 	invoice := []byte(`{
 		"merchant_info": {
