@@ -157,7 +157,7 @@ func invoice(amount string, currency string, account string,
 
 	fmt.Println(string(body))
 
-	var info map[string]interface{}
+	/*var info map[string]interface{}
 	err = json.Unmarshal(body, &info)
 	if err != nil {
 		return err
@@ -166,7 +166,7 @@ func invoice(amount string, currency string, account string,
 	err = sendInvoice(info["id"].(string))
 	if err != nil {
 		return err
-	}
+	}*/
 
 	return nil
 }
