@@ -10,8 +10,8 @@ import (
 )
 
 var (
-	ClientID  = "AXCB7ynE5biGyr9EqzBGs3k4rKgm4XSUyetQTttPLVZj22W_yY7pfqeZl51pDNejY5d9TKtweGrD_cBV"
-	Secret    = "EKap6plZ6thi5zltlRVZu4VrLUKwD22RrA0_vqSoJVy_j7Mfifs9j11xYXky2v6T8PupRIyRdxrjuAIa"
+	ClientID  = "AXm5iUP1IPgeI1doLbqf8jXe8cqeuYRr0rBRhMMX7o5cVo-kyv-TRyMJ3om291wL_8T7-zs6AX4kaXri"
+	Secret    = "EAHPWNjyE_M91H79EkSoQyNwfp6eR74MwkRztKJUiOVOYRvzyhItrcttvo9FBmCFE671BmWSZjKSALBs"
 	ReturnURI = "https://gotobi.herokuapp.com/login"
 )
 
