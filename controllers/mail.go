@@ -43,7 +43,7 @@ func getAmount(in string) (string, string) {
 
 	// normalize
 	a, _ := strconv.Atoi(amount)
-	amount = string(a)
+	amount = strconv.Itoa(a)
 
 	return amount, currency
 }
