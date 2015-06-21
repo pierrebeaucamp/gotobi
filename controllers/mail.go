@@ -38,8 +38,10 @@ func getAmount(in string) (string, string) {
 	}
 
 	fmt.Println(amount)
+	amount = regAm.FindStringSubmatch(amount)[0]
+	fmt.Println(amount)
 
-	if regAm.FindStringSubmatch(amount) == nil {
+	if amount == "" {
 		return "0", currency
 	}
 
