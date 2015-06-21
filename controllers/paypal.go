@@ -10,8 +10,8 @@ import (
 )
 
 var (
-	ClientID  = "AWl0fcSI_mUfE_miyTT45_9WbOAkiDVTy_BV4QnXlgB7M5zmZO8EWm-FXhKYMVljXlshGVXqQDnGyfJ7"
-	Secret    = "EBKPbSnMTfgS9l7TvcYz3k5QUQpMLp882n3XL_J2Upo0wze-jLwfhIo_LnQdBEu9Sz8Zz6vIw3hWS6SD"
+	ClientID  = "ASbG8fJ7mRm3KXfx0sWx1Pv2W0Nxy-L_aiM2x_Bqh7lrqME0KGGm94-BsaRIG-GvYsoEvZMteHuyU8_I"
+	Secret    = "EJ0q4GOEJEpBNOCK2Bmord7mqHR-rs8Qr2Y-m2o-tCV00kszMdJiv3HUQDbh3CaJutsCc2IGjFB8Jf26"
 	ReturnURI = "https://gotobi.herokuapp.com/login"
 )
 
@@ -112,7 +112,7 @@ func invoice(amount string, currency string, account string,
 
 	invoice := []byte(`{
 		"merchant_info": {
-			"email": "admin@gotobi.de"
+			"email": "paypal_de@robocomobo.com"
 		},
 		"billing_info": [{
 			"email": "` + email + `"
