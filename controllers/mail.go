@@ -43,6 +43,11 @@ func getAmount(in string) (string, string) {
 	return amount, currency
 }
 
+func getEmail(in string) string {
+	re := regexp.MustCompile(`\<(.*?)\>`)
+	return re.FindStringSubmatch(in)[1]
+}
+
 func InboundMail(w http.ResponseWriter, r *http.Request) {
 	if r.FormValue("from") == "" && r.FormValue("to") == "" {
 		fmt.Fprint(w, "This is not an Email")
@@ -63,7 +68,7 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := invoice(amount, currency, account, r.FormValue("from"))
+	err := invoice(amount, currency, account, getEmail(r.FormValue("from")))
 	if err != nil {
 		fmt.Println("Error: " + err.Error())
 	}
