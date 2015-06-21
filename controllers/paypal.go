@@ -56,14 +56,13 @@ func getAuthToken() (string, error) {
 }
 
 func PaypalLogin(w http.ResponseWriter, r *http.Request) {
-	values := "client_id=" + ClientID + "&client_secret=" + Secret +
-		"&grant_type=authorization_code&code=" + r.URL.Query().Get("code")
+	values := "grant_type=authorization_code&code=" + r.URL.Query().Get("code")
 	data := bytes.NewReader([]byte(values))
 
 	req, err := http.NewRequest("POST",
 		"https://api.paypal.com/v1/identity/openidconnect/tokenservice",
 		data)
-
+	req.SetBasicAuth(ClientID, Secret)
 	if err != nil {
 		//TODO
 		return
