@@ -164,7 +164,8 @@ func invoice(amount string, currency string, account string,
 
 	if info["id"] == nil {
 		fmt.Println(string(body))
-		return
+		// graceful for now
+		return nil
 	}
 
 	err = sendInvoice(info["id"].(string))
