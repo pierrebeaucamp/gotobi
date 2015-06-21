@@ -25,7 +25,7 @@ func init() {
 	}
 
 	_, err = controllers.DB.Exec(`CREATE TABLE IF NOT EXISTS projects (
-		id VARCHAR(100) UNIQUE PRIMARY KEY,
+		id VARCHAR(100) UNIQUE,
 		name VARCHAR(50) NOT NULL,
 		email VARCHAR(50) UNIQUE NOT NULL,
     	bio TEXT);`)
