@@ -56,7 +56,8 @@ func getAuthToken() (string, error) {
 }
 
 func PaypalLogin(w http.ResponseWriter, r *http.Request) {
-	values := "grant_type=authorization_code&code=" + r.URL.Query().Get("code")
+	values := "grant_type=authorization_code&code=" +
+		r.URL.Query().Get("code") + "&redirect_uri=" + ReturnURI
 	data := bytes.NewReader([]byte(values))
 
 	req, err := http.NewRequest("POST",
