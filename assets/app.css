@@ -3341,7 +3341,7 @@ form .row textarea.columns {
 
 /* Label Styles */
 label {
-  color: #4d4d4d;
+  color: #222222;
   cursor: pointer;
   display: block;
   font-size: 0.875rem;
@@ -3360,7 +3360,7 @@ label.inline {
 }
 label small {
   text-transform: capitalize;
-  color: #676767;
+  color: #434343;
 }
 
 /* Attach elements to the beginning or end of an input */
@@ -3717,7 +3717,7 @@ span.error, small.error {
 }
 .error > label > small {
   background: transparent;
-  color: #676767;
+  color: #434343;
   display: inline;
   font-size: 60%;
   font-style: normal;
@@ -7928,8 +7928,16 @@ th.hide-for-touch {
     display: none !important;
   }
 }
-.test {
-  color: #008CBA;
+nav.top-bar {
+  padding: 0 0.9375rem;
+}
+
+.down-1 {
+  margin-top: 1.2rem;
+}
+
+.down-7 {
+  margin-top: 8.4rem;
 }
 
 img.logoimg {
@@ -7955,7 +7963,7 @@ img.logoimg {
 }
 
 section#maincontent {
-  background: url(../assets/images/backgroundmin.jpg) no-repeat 0 50%;
+  background: url(images/backgroundmin.jpg) no-repeat 0 50%;
   background-size: cover;
   padding: 5% 0;
   text-align: center;
@@ -7985,6 +7993,26 @@ p.footertext {
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-size: 0.8rem;
+}
+
+label {
+  font-size: 1rem;
+}
+
+input.button {
+  line-height: 1rem;
+}
+
+input.largetext {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+span.emailhook {
+  font-size: 1.4rem;
+  left: -4px;
+  position: absolute;
 }
 
 .project {
