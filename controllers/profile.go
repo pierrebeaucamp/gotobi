@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -60,7 +59,6 @@ func profile(w http.ResponseWriter, r *http.Request) {
 
 	err = row.Scan(&name, &email, &bio)
 	if err != nil {
-		fmt.Println(err.Error())
 		render(t, w, nil)
 		return
 	}
@@ -101,4 +99,6 @@ func Submit(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	http.Redirect(w, r, "/", 307)
 }

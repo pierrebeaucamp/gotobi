@@ -17,6 +17,13 @@ func getTemplate(name string) *template.Template {
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
+	// 404 page
+	if r.URL.Path != "/" {
+		http.Error(w, "404 Not found", http.StatusNotFound)
+		return
+	}
+
+	// Redirect if signed in
 	_, err := r.Cookie("GoTobiAuthToken")
 	if err == nil {
 		profile(w, r)
@@ -24,12 +31,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	}
 
 	t := getTemplate("index")
-
 	varmap := map[string]interface{}{
 		"clientID":  ClientID,
 		"returnURI": ReturnURI,
 	}
-
 	render(t, w, varmap)
 }
 
