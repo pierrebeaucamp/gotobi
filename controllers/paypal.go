@@ -188,7 +188,7 @@ func sendInvoice(id string) error {
 	req.Header.Add("Content-Type", "application/json")
 
 	client := &http.Client{}
-	res, err = client.Do(req)
+	res, err := client.Do(req)
 	if err != nil {
 		return err
 	}
