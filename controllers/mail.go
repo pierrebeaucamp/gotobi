@@ -63,7 +63,7 @@ func InboundMail(w http.ResponseWriter, r *http.Request) {
 	}
 
 	account := getAccount(r.FormValue("to"))
-	if account == nil {
+	if account == "" {
 		fmt.Fprint(w, "200")
 		return
 	}
