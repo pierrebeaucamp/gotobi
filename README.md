@@ -8,3 +8,5 @@ Additionally, set the following environment varibale for the database:
 ````
 export DATABASE_URL=postgres://bekbgxsvrltnpf:6P1if_k6f62pH-N59epi3DI7b_@ec2-54-83-205-164.compute-1.amazonaws.com:5432/d1q5mcrji9rk5j
 ````
+
+jetzt
