@@ -27,7 +27,7 @@ func getAuthToken() (string, error) {
 
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("Accept-Language", "en_US")
-	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 	req.SetBasicAuth(ClientID, Secret)
 
 	client := &http.Client{}
